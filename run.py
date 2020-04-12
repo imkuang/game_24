@@ -13,7 +13,7 @@ def main():
     cmd_list = ["stop", "answer", "nope"]
     while True:
         cards = gen_cards()
-        print("**************************************")
+        print("***************************************")
         print("题目：", cards)
         cards.sort()
         standard_answer = answers[tuple(cards)]
