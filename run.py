@@ -2,22 +2,30 @@ from utils import *
 import sys
 
 
-def main():
-    print("********** 24点小游戏 By 夕日 **********")
+def usage_print():
+    print("************* 24点小游戏 By 夕日 *************")
     print("使用说明：")
     print("1. 输入 answer 查看当前题目的答案")
     print("2. 输入 stop 终止游戏")
     print("3. 直接输入算式即可回答题目，若判断无解请输入 nope")
     print("4. 除上述描述情况之外的任何输入都是不合法的")
+
+
+def main():
+    usage_print()
     answers = load_answer()
     cmd_list = ["stop", "answer", "nope"]
     while True:
         cards = gen_cards()
-        print("***************************************")
+        print("*********************************************")
         print("题目：", cards)
+
+        # 排序，查找标准答案
         cards.sort()
         standard_answer = answers[tuple(cards)]
+
         user_input = input(": ")
+        user_input = user_input.strip()
         if user_input == cmd_list[0]:
             sys.exit(0)
         elif user_input == cmd_list[1]:
@@ -30,7 +38,7 @@ def main():
         else:
             if is_legal(user_input, tuple(cards)):
                 try:
-                    if abs(eval(user_input) - 24) < 1e-10:
+                    if abs(eval(user_input) - 24) < 1e-10:  # 避免除法产生小数导致结果不再为 int 型的情况
                         print("回答正确！答案：", user_input)
                     else:
                         print("回答错误！答案：", standard_answer)
