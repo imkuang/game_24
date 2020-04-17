@@ -12,9 +12,11 @@ def usage_print():
 
 
 def main():
+    """
+    游戏流程控制
+    """
     usage_print()
     answers = load_answer()
-    cmd_list = ["stop", "answer", "nope"]
     while True:
         cards = gen_cards()
         print("*********************************************")
@@ -26,12 +28,12 @@ def main():
 
         user_input = input(">")
         user_input = user_input.strip()
-        if user_input == cmd_list[0]:
+        if user_input == "stop":
             print("游戏结束，欢迎下次再来使用!")
             sys.exit(0)
-        elif user_input == cmd_list[1]:
+        elif user_input == "answer":
             print("标准答案:", standard_answer.replace("nope", "无解"))
-        elif user_input == cmd_list[2]:
+        elif user_input == "nope":
             if standard_answer == "nope":
                 print("回答正确!", "无解")
             else:
