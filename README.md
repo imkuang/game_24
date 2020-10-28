@@ -5,7 +5,7 @@ Python 实现的 24 点小游戏
 ## 使用方法
 
 ```shell
-git clone https://github.com/xirikm/game_24.git
+git clone https://github.com/inkuang/game_24.git
 cd game_24
 python3 run.py
 ```
