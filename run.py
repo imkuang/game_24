@@ -3,7 +3,7 @@ import sys
 
 
 def usage_print():
-    print("************* 24点小游戏 By 夕日 *************")
+    print("************** 24点小游戏 by inkuang **************")
     print("使用说明:")
     print("1. 输入 answer 查看当前题目的答案")
     print("2. 输入 stop 终止游戏")
@@ -19,7 +19,7 @@ def main():
     answers = load_answer()
     while True:
         cards = gen_cards()
-        print("*********************************************")
+        print("***************************************************")
         print("题目:", cards)
 
         # 排序，查找标准答案
